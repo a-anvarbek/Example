@@ -8,6 +8,7 @@ import LifestyleHome from "../pages/conciergeLifestyle/LifestyleHome";
 import HistoryHome from "../pages/imperialHistory/HistoryHome";
 import Payment from "../pages/auth/Payment";
 import Booking from "../pages/orders/Booking";
+import ToursHome from "../pages/tours/ToursHome";
 
 const MainRouter = () => {
   return (
@@ -15,6 +16,7 @@ const MainRouter = () => {
       <Route path={ROUTES.HOME} element={<Home />} />
       <Route path={ROUTES.HISTORY} element={<HistoryHome />} />
       <Route path={ROUTES.LIFESTYLE} element={<LifestyleHome />} />
+      <Route path={ROUTES.TOURS} element={<ToursHome />} />
       <Route path={ROUTES.PAYMENT} element={<Payment />} />
       <Route path={ROUTES.BOOKING} element={<Booking />} />
     </Routes>
