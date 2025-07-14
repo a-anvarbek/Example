@@ -10,6 +10,7 @@ const Wrapper = styled.div`
   left: 0;
   z-index: 999;
   transition: 0.3s;
+  height: 120px;
 
   &:hover {
     color: #808080;
