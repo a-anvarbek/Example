@@ -33,22 +33,23 @@ const Logo = styled.p`
   &:hover {
     transform: scale(1.05);
     color: #fff;
-    transition: all 0.3s ease;
   }
 
-  &:after {
+  &::after {
     content: "";
     position: absolute;
-    width: 0;
-    height: 3px;
     left: 0;
     bottom: -5px;
-    border-bottom: 3px solid #fff;
-    transition: width 0.3s ease;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
   }
 
   &:hover::after {
-    width: 100%;
+    transform: scaleX(1);
   }
 `;
 
