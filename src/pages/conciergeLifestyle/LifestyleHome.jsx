@@ -46,9 +46,47 @@ const Img = styled.img`
 `;
 
 const P = styled.p`
-  font-size: 25px;
+  font-size: ${({ $fontSize }) => $fontSize || "25px"};
   margin-bottom: 15px;
   font-weight: 400;
+  color: #fff;
+`;
+
+const Content = styled.div`
+  width: 485px;
+  transition: transform 0.3s ease;
+  animation: ${fadeIn} 1s ease-in-out;
+`;
+
+const BoxBtn = styled.div`
+  display: flex;
+  gap: 40px;
+  align-items: center;
+`;
+
+const Div = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 50px;
+  align-items: center;
+`;
+
+const Btn = styled.button`
+  width: 260px;
+  height: 100px;
+  border: 2px solid #ffe9a0;
+  background-color: transparent;
+  color: #fff;
+  font-size: 25px;
+  padding: 17px 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  animation: ${fadeIn} 1s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 const services = [
@@ -92,6 +130,19 @@ const LifestyleHome = () => {
             </Case>
           ))}
         </Box>
+
+        <Div>
+          <Content>
+            <P $fontSize="40px">
+              Trusted by diplomats, dignitaries, and discerning travelers.
+            </P>
+          </Content>
+
+          <BoxBtn>
+            <Btn>Explore Signature Tours</Btn>
+            <Btn>Request a Custom Itinerary</Btn>
+          </BoxBtn>
+        </Div>
       </Wrapper>
     </>
   );
