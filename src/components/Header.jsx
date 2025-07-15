@@ -96,6 +96,11 @@ const Li = styled.li`
   }
 `;
 
+const A = styled.a`
+  color: inherit;
+  text-decoration: none;
+`;
+
 const Header = () => {
   const navigate = useNavigate();
 
@@ -103,23 +108,27 @@ const Header = () => {
     <>
       <Wrapper>
         <Container>
-          <Logo onClick={() => navigate("/")}>NIPPON IMPERIAL</Logo>
+          <Logo>
+            <A href="#home">NIPPON IMPERIAL</A>
+          </Logo>
 
           <Menu>
             <Ul>
-              <Li onClick={() => navigate("/imperial-history")}>
-                The Imperial Story
+              <Li>
+                <A href="#imperial-story">The Imperial Story</A>
               </Li>
 
-              <Li onClick={() => navigate("/concierge-lifestyle")}>
-                Concierge & Lifestyle
+              <Li>
+                <A href="#concierge-lifestyle">Concierge & Lifestyle</A>
               </Li>
 
-              <Li onClick={() => navigate("/signature-tours")}>
-                Signature Tours
+              <Li>
+                <A href="#signature-tours">Signature Tours</A>
               </Li>
 
-              <Li onClick={() => navigate("*")}>For Organizations</Li>
+              <Li>
+                <A href="#for-organizations">For Organizations</A>
+              </Li>
             </Ul>
           </Menu>
         </Container>

@@ -3,12 +3,14 @@ import styled from "styled-components";
 import Title from "../../components/Title";
 import fadeIn from "../../components/Animation";
 
-import BG from "../../images/HomeBG.png";
-import Img1 from "../../images/Img1.png";
-import Img2 from "../../images/Img2.png";
-import Img3 from "../../images/Img3.png";
-import Img4 from "../../images/Img4.png";
-import Img5 from "../../images/Img5.png";
+import BG from "../../images/home/HomeBG.png";
+import Img1 from "../../images/home/Img1.png";
+import Img2 from "../../images/home/Img2.png";
+import Img3 from "../../images/home/Img3.png";
+import Img4 from "../../images/home/Img4.png";
+import Img5 from "../../images/home/Img5.png";
+import HistoryHome from "../imperialHistory/HistoryHome";
+import LifestyleHome from "../conciergeLifestyle/LifestyleHome";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -103,7 +105,7 @@ const services = [
 const Home = () => {
   return (
     <>
-      <Wrapper>
+      <Wrapper id="home">
         <Title name="Every Detail, Handled with Precision and Grace." />
 
         <Container>
@@ -125,6 +127,10 @@ const Home = () => {
           ))}
         </Box>
       </Wrapper>
+
+      {/* <HistoryHome /> */}
+
+      <LifestyleHome />
     </>
   );
 };
