@@ -5,8 +5,8 @@ import fadeIn from "../../components/Animation";
 
 import BG from "../../images/HomeBG.png";
 import Img1 from "../../images/Img1.png";
-// import Img2 from "../../images/Img2.png";
-// import Img3 from "../../images/Img3.png";
+import Img2 from "../../images/Img2.png";
+import Img3 from "../../images/Img3.png";
 import Img4 from "../../images/Img4.png";
 import Img5 from "../../images/Img5.png";
 
@@ -72,14 +72,14 @@ const services = [
   },
 
   {
-    img: Img1,
+    img: Img2,
     name: "Restaurant Reservations",
     brief: "Michelin-star, Kaiseki private dining",
     time: "1.5s",
   },
 
   {
-    img: Img1,
+    img: Img3,
     name: "Wellness & Spa Experiences",
     brief: "Ryokan-style onsens, aeethetic clinics, massages",
     time: "2s",
@@ -115,7 +115,7 @@ const Home = () => {
 
         <Box>
           {services.map((service, index) => (
-            <Case key={index} $animationDuration={service.time}>
+            <Case key={index} >
               <Img src={service.img} />
 
               <P $fontSize={"25px"}>{service.name}</P>
