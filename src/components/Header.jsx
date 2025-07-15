@@ -75,21 +75,23 @@ const Li = styled.li`
     transform: scale(1.05);
     color: #fff;
     transition: all 0.3s ease;
-    border-bottom: 1.5px solid #fff;
   }
 
-  &:after {
+  &::after {
     content: "";
     position: absolute;
-    width: 0;
-    height: 3px;
     left: 0;
-    bottom: 0px;
-    transition: width 0.3s ease;
-    border-bottom: 1.5px solid #fff;
+    bottom: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: #fff;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
   }
 
   &:hover::after {
+    transform: scaleX(1);
     width: 100%;
   }
 `;
