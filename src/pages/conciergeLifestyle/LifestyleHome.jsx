@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+import OurSignature from "./OurSignature";
 import Title from "../../components/Title";
 import fadeIn from "../../components/Animation";
 
@@ -8,7 +9,6 @@ import Img1 from "../../images/lifestyle/Img1.png";
 import Img2 from "../../images/lifestyle/Img2.png";
 import Img3 from "../../images/lifestyle/Img3.png";
 import Img4 from "../../images/lifestyle/Img4.png";
-import OurSignature from "./OurSignature";
 
 const Wrapper = styled.div`
   width: 100%;
