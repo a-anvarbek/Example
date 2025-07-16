@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 import fadeIn from "../../components/Animation";
 
-import Img6 from "../../images/lifestyle/IMg6.png";
-import Img7 from "../../images/lifestyle/IMg7.png";
-import Img8 from "../../images/lifestyle/IMg8.png";
-import Img9 from "../../images/lifestyle/IMg9.png";
-import Img10 from "../../images/lifestyle/IMg10.png";
-import Img11 from "../../images/lifestyle/IMg11.png";
-import Img12 from "../../images/lifestyle/IMg12.png";
+import Img6 from "../../images/lifestyle/Img6.png";
+import Img7 from "../../images/lifestyle/Img7.png";
+import Img8 from "../../images/lifestyle/Img8.png";
+import Img9 from "../../images/lifestyle/Img9.png";
+import Img10 from "../../images/lifestyle/Img10.png";
+import Img11 from "../../images/lifestyle/Img11.png";
+import Img12 from "../../images/lifestyle/Img12.png";
 
 const Wrapper = styled.div`
   width: 100%;
