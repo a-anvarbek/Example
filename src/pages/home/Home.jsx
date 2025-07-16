@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+import LifestyleHome from "../conciergeLifestyle/LifestyleHome";
+import HistoryHome from "../imperialHistory/HistoryHome";
+import ToursHome from "../tours/ToursHome";
+
 import Title from "../../components/Title";
 import fadeIn from "../../components/Animation";
 
@@ -9,8 +13,6 @@ import Img2 from "../../images/home/Img2.png";
 import Img3 from "../../images/home/Img3.png";
 import Img4 from "../../images/home/Img4.png";
 import Img5 from "../../images/home/Img5.png";
-import HistoryHome from "../imperialHistory/HistoryHome";
-import LifestyleHome from "../conciergeLifestyle/LifestyleHome";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -131,6 +133,8 @@ const Home = () => {
       {/* <HistoryHome /> */}
 
       <LifestyleHome />
+
+      <ToursHome />
     </>
   );
 };
