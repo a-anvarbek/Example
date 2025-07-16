@@ -8,6 +8,7 @@ import Img1 from "../../images/lifestyle/Img1.png";
 import Img2 from "../../images/lifestyle/Img2.png";
 import Img3 from "../../images/lifestyle/Img3.png";
 import Img4 from "../../images/lifestyle/Img4.png";
+import OurSignature from "./OurSignature";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -17,6 +18,7 @@ const Wrapper = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   padding-top: 120px;
+  color: #fff;
 `;
 
 const Box = styled.div`
@@ -29,7 +31,6 @@ const Box = styled.div`
 const Case = styled.div`
   width: 218px;
   text-align: center;
-  color: #fff;
   cursor: pointer;
   transition: transform 0.3s ease;
   animation: ${fadeIn} ease-in-out;
@@ -49,9 +50,8 @@ const P = styled.p`
   font-size: ${({ $fontSize }) => $fontSize || "25px"};
   margin-bottom: 15px;
   font-weight: 400;
-  color: #fff;
 `;
-
+  
 const Content = styled.div`
   width: 485px;
   transition: transform 0.3s ease;
@@ -144,6 +144,8 @@ const LifestyleHome = () => {
           </BoxBtn>
         </Div>
       </Wrapper>
+
+      <OurSignature />
     </>
   );
 };
