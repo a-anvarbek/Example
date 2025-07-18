@@ -70,8 +70,8 @@ const Card = styled.div`
 `;
 
 const Icon = styled.img`
-  width: 100px;
-  height: 110px;
+  width: 80px;
+  height: 80px;
 `;
 
 const experiences = [
