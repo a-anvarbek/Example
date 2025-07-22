@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -11,6 +10,10 @@ const Wrapper = styled.div`
   z-index: 999;
   transition: 0.3s;
   height: 120px;
+
+  &:hover {
+    color: #808080;
+  }
 `;
 
 const Container = styled.div`
@@ -18,44 +21,38 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 10px;
-    padding: 20px 30px;
-  }
 `;
 
-const Logo = styled.a`
+const Logo = styled.p`
   font-size: 30px;
+  transition: all 0.3s ease;
   cursor: pointer;
   position: relative;
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.3s ease;
 
   &:hover {
     transform: scale(1.05);
+    color: #fff;
   }
 
   &::after {
     content: "";
     position: absolute;
-    left: 50%;
+    left: 0;
     bottom: -5px;
-    width: 0;
+    width: 100%;
     height: 3px;
     background-color: #fff;
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
   }
 
   &:hover::after {
-    width: 100%;
+    transform: scaleX(1);
   }
 `;
 
-const Menu = styled.nav`
+const Menu = styled.div`
   display: flex;
 `;
 
@@ -63,105 +60,77 @@ const Ul = styled.ul`
   display: flex;
   align-items: center;
   gap: 32px;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 10px;
-  }
 `;
 
 const Li = styled.li`
   font-size: 20px;
   list-style: none;
   cursor: pointer;
+  transition: all 0.3s ease;
   position: relative;
+  padding: 5px 0;
 
-  a {
-    color: ${({ $active }) => ($active ? "#fff" : "#aaa")};
-    text-decoration: none;
+  &:hover {
+    transform: scale(1.05);
+    color: #fff;
     transition: all 0.3s ease;
-
-    &:hover {
-      color: #fff;
-    }
   }
 
   &::after {
     content: "";
     position: absolute;
-    bottom: -2px;
-    left: 50%;
-    width: ${({ $active }) => ($active ? "100%" : "0")};
-    height: 2px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1.5px;
     background-color: #fff;
-    transform: translateX(-50%);
-    transition: width 0.3s ease;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
   }
 
   &:hover::after {
+    transform: scaleX(1);
     width: 100%;
   }
 `;
 
-const sections = [
-  {
-    id: "imperial-story",
-    label: "The Imperial Story",
-  },
-
-  {
-    id: "concierge-lifestyle",
-    label: "Concierge & Lifestyle",
-  },
-
-  {
-    id: "signature-tours",
-    label: "Signature Tours",
-  },
-
-  {
-    id: "for-organizations",
-    label: "For Organizations",
-  },
-];
+const A = styled.a`
+  color: inherit;
+  text-decoration: none;
+`;
 
 const Header = () => {
-  const [activeSection, setActiveSection] = useState("");
-
-  useEffect(() => {
-    const handleScroll = () => {
-      for (let section of sections) {
-        const el = document.getElementById(section.id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 150 && rect.bottom >= 150) {
-            setActiveSection(section.id);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <Wrapper>
-      <Container>
-        <Logo href="#home">NIPPON IMPERIAL</Logo>
-        <Menu>
-          <Ul>
-            {sections.map((section) => (
-              <Li key={section.id} $active={activeSection === section.id}>
-                <a href={`#${section.id}`}>{section.label}</a>
+    <>
+      <Wrapper>
+        <Container>
+          <Logo>
+            <A href="#home">NIPPON IMPERIAL</A>
+          </Logo>
+
+          <Menu>
+            <Ul>
+              <Li>
+                <A href="#imperial-story">The Imperial Story</A>
               </Li>
-            ))}
-          </Ul>
-        </Menu>
-      </Container>
-    </Wrapper>
+
+              <Li>
+                <A href="#concierge-lifestyle">Concierge & Lifestyle</A>
+              </Li>
+
+              <Li>
+                <A href="#signature-tours">Signature Tours</A>
+              </Li>
+
+              <Li>
+                <A href="#for-organizations">For Organizations</A>
+              </Li>
+            </Ul>
+          </Menu>
+        </Container>
+      </Wrapper>
+    </>
   );
 };
 
