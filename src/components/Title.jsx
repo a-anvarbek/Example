@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import fadeIn from "./Animation";
-
 const Wrapper = styled.div`
   width: 100%;
 `;
@@ -9,21 +7,20 @@ const Wrapper = styled.div`
 const Container = styled.div`
   width: 650px;
   margin: auto;
-  margin-top: 50px;
-  animation: ${fadeIn} 1s ease-in-out;
 `;
 
 const P = styled.p`
+  margin-top: ${({ $marginTop }) => $marginTop || "50px"};
   font-size: 60px;
   color: #fff;
   font-weight: 100;
 `;
 
-const Title = ({ name }) => {
+const Title = ({ name, margin }) => {
   return (
     <Wrapper>
-      <Container>
-        <P>{name}</P>
+      <Container className="home-title">
+        <P $marginTop={margin}>{name}</P>
       </Container>
     </Wrapper>
   );
