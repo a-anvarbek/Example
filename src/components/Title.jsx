@@ -11,16 +11,19 @@ const Container = styled.div`
 
 const P = styled.p`
   margin-top: ${({ $marginTop }) => $marginTop || "50px"};
+  text-align: ${({ $textAlign }) => $textAlign || ""};
   font-size: 60px;
   color: #fff;
   font-weight: 100;
 `;
 
-const Title = ({ name, margin }) => {
+const Title = ({ name, margin, text }) => {
   return (
     <Wrapper>
       <Container className="home-title">
-        <P $marginTop={margin}>{name}</P>
+        <P $marginTop={margin} $textAlign={text}>
+          {name}
+        </P>
       </Container>
     </Wrapper>
   );
