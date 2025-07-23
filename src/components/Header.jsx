@@ -1,4 +1,8 @@
+// Libraries
 import styled from "styled-components";
+
+// Icons
+import { IoMdSettings } from "react-icons/io";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -100,6 +104,19 @@ const A = styled.a`
   text-decoration: none;
 `;
 
+const Button = styled.button`
+  width: 35px;
+  height: 35px;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 32px;
+  border: none;
+  background-color: #000;
+  color: #fff;
+`;
+
 const Header = () => {
   return (
     <>
@@ -127,6 +144,10 @@ const Header = () => {
                 <A href="#for-organizations">For Organizations</A>
               </Li>
             </Ul>
+
+            <Button>
+              <IoMdSettings />
+            </Button>
           </Menu>
         </Container>
       </Wrapper>
