@@ -1,58 +1,56 @@
 // Libraries
+import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import styled from "styled-components";
 
-// Icons
-import { IoMdSettings } from "react-icons/io";
+// Images
+import BG from "../images/home/Logo.png";
 
+// Styled Components
 const Wrapper = styled.div`
   width: 100%;
   background-color: #000;
-  color: #fff;
+  color: #b3935c;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 999;
+  z-index: 1000;
   transition: 0.3s;
-  height: 120px;
 
   &:hover {
-    color: #808080;
+    color: #9c7e4f;
   }
 `;
 
 const Container = styled.div`
-  padding: 40px 50px;
+  padding: 25px 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
 
-const Logo = styled.p`
-  font-size: 30px;
-  transition: all 0.3s ease;
+const LogoWrapper = styled.div`
+  height: 100vh;
+  width: 100%;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+`;
+
+const LogoImg = styled.img`
+  width: 120px;
+  height: auto;
+  object-fit: contain;
   cursor: pointer;
-  position: relative;
+  transition: all 0.3s ease;
+  opacity: ${(props) => (props.visible ? 1 : 0)};
 
   &:hover {
     transform: scale(1.05);
-    color: #fff;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 100%;
-    height: 3px;
-    background-color: #fff;
-    transform: scaleX(0);
-    transform-origin: center;
-    transition: transform 0.3s ease;
-  }
-
-  &:hover::after {
-    transform: scaleX(1);
   }
 `;
 
@@ -63,7 +61,7 @@ const Menu = styled.div`
 const Ul = styled.ul`
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 33px;
 `;
 
 const Li = styled.li`
@@ -76,7 +74,7 @@ const Li = styled.li`
 
   &:hover {
     transform: scale(1.05);
-    color: #fff;
+    color: #ffd387;
     transition: all 0.3s ease;
   }
 
@@ -87,7 +85,7 @@ const Li = styled.li`
     bottom: 0;
     width: 100%;
     height: 1.5px;
-    background-color: #fff;
+    background-color: #ffd387;
     transform: scaleX(0);
     transform-origin: center;
     transition: transform 0.3s ease;
@@ -104,53 +102,90 @@ const A = styled.a`
   text-decoration: none;
 `;
 
-const Button = styled.button`
-  width: 35px;
-  height: 35px;
-  font-size: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 32px;
-  border: none;
-  background-color: #000;
-  color: #fff;
-`;
-
 const Header = () => {
+  const navigate = useNavigate();
+  const logoRef = useRef(null);
+  const triggerRef = useRef(null);
+  const navLogoRef = useRef(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.fromTo(
+      logoRef.current,
+      {
+        y: 0,
+        scale: 9,
+        opacity: 1,
+      },
+      {
+        yPercent: -50,
+        scale: 1,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: triggerRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      }
+    );
+
+    gsap.fromTo(
+      navLogoRef.current,
+      { opacity: 0 },
+      {
+        opacity: 1,
+        scrollTrigger: {
+          trigger: triggerRef.current,
+          start: "top top+=100",
+          end: "bottom top",
+          scrub: true,
+        },
+      }
+    );
+  }, []);
+
   return (
     <>
       <Wrapper>
         <Container>
-          <Logo>
-            <A href="#home">NIPPON IMPERIAL</A>
-          </Logo>
+          <LogoImg
+            ref={navLogoRef}
+            src={BG}
+            alt="logo"
+            onClick={() => navigate("/")}
+          />
 
           <Menu>
             <Ul>
               <Li>
-                <A href="#imperial-story">The Imperial Story</A>
+                <A href="#imperial-story">Imperial Story</A>
               </Li>
 
               <Li>
-                <A href="#concierge-lifestyle">Concierge & Lifestyle</A>
+                <A href="#concierge-lifestyle">Concierge</A>
               </Li>
 
               <Li>
-                <A href="#signature-tours">Signature Tours</A>
+                <A href="#signature-tours">Services</A>
               </Li>
 
               <Li>
-                <A href="#for-organizations">For Organizations</A>
+                <A href="#for-organizations">Partnership</A>
+              </Li>
+
+              <Li>
+                <A href="#for-organizations">Contact us</A>
               </Li>
             </Ul>
-
-            <Button>
-              <IoMdSettings />
-            </Button>
           </Menu>
         </Container>
       </Wrapper>
+
+      <LogoWrapper ref={triggerRef}>
+        <LogoImg ref={logoRef} src={BG} alt="centered logo" />
+      </LogoWrapper>
     </>
   );
 };
