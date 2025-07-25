@@ -1,9 +1,10 @@
 // Libraries
 import { useEffect } from "react";
-import styled from "styled-components";
 import ScrollReveal from "scrollreveal";
+import styled from "styled-components";
 
 // Pages
+import ImperialHero from "./ImperialHero";
 import LifestyleHome from "../conciergeLifestyle/LifestyleHome";
 import HistoryHome from "../imperialHistory/HistoryHome";
 import ToursHome from "../tours/ToursHome";
@@ -11,49 +12,41 @@ import Detail from "./Detail";
 
 // Components
 import Title from "../../components/Title";
-import fadeIn from "../../components/Animation";
 
 // Images
 import BG from "../../images/home/HomeBG.jpg";
-import Logo from "../../images/home/Logo.png";
 
 const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
+  color: #ffd387;
+  padding: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+`;
+
+const Within = styled.div`
+  width: 100%;
+  height: 100%;
   background-image: url(${BG});
   background-blend-mode: multiply;
   background-color: #666464;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  padding-top: 120px;
-  color: #fff;
-`;
-
-const Container = styled.div`
-  width: 540px;
-  margin: 25px auto;
+  border-radius: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
 
-const Img = styled.img`
-  width: 300px;
-  height: 300px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: scale(1.05);
-  }
-`;
-
 const Content = styled.p`
   font-size: 25px;
   margin-top: 20px;
-  width: 466px;
+  width: 700px;
   text-align: center;
 `;
 
@@ -71,6 +64,11 @@ const Home = () => {
     sr.reveal(".home-title", { delay: 200 });
     sr.reveal(".home-content", { delay: 400 });
 
+    // Imperial Story
+    sr.reveal(".imperial-title", {delay: 200});
+    sr.reveal(".imperial-content", {delay: 350});
+    sr.reveal(".imperial-button", {delay: 500});
+
     // Detail section
     sr.reveal(".detail-title", { delay: 100 });
     sr.reveal(".detail-text", { delay: 300 });
@@ -80,18 +78,23 @@ const Home = () => {
   return (
     <>
       <Wrapper id="home">
-        <Container>
-          <Img src={Logo} className="home-img" />
-
-          <Title name="NIPPON IMPERIAL" margin={"30px"} />
+        <Within>
+          <Title
+            text="center"
+            name="Every Detail, Handled
+                  with Precision and Grace."
+          />
 
           <Content className="home-content">
-            Bringing timeless tradition into modern precision.
+            From dinner at a Michelin-star restaurant to personal assistants and
+            spa bookings, our lifestyle team curates your lapan in full.
           </Content>
-        </Container>
+        </Within>
       </Wrapper>
 
-      <Detail />
+      <ImperialHero />
+
+      {/* <Detail /> */}
 
       {/* <HistoryHome /> */}
 

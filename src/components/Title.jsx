@@ -1,3 +1,4 @@
+// Libraries
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -13,7 +14,7 @@ const P = styled.p`
   margin-top: ${({ $marginTop }) => $marginTop || "50px"};
   text-align: ${({ $textAlign }) => $textAlign || ""};
   font-size: 60px;
-  color: #fff;
+  color: #ffd387;
   font-weight: 100;
 `;
 
