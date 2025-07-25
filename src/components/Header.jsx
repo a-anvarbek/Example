@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   transition: 0.3s;
 
   &:hover {
-    color: #9c7e4f;
+    color: #614f33;
   }
 `;
 
