@@ -14,15 +14,15 @@ const P = styled.p`
   margin-top: ${({ $marginTop }) => $marginTop || "50px"};
   text-align: ${({ $textAlign }) => $textAlign || ""};
   font-size: 60px;
-  color: #ffd387;
+  color: ${({ $color }) => $color || "#ffd387"};
   font-weight: 100;
 `;
 
-const Title = ({ name, margin, text }) => {
+const Title = ({ name, margin, text, color }) => {
   return (
     <Wrapper>
       <Container className="home-title">
-        <P $marginTop={margin} $textAlign={text}>
+        <P $marginTop={margin} $textAlign={text} $color={color}>
           {name}
         </P>
       </Container>

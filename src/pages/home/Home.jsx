@@ -20,7 +20,7 @@ import BG2 from "../../images/home/DetailBG.jpg";
 const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
-  color: #ffd387;
+  color: #fff;
   padding: 80px;
   display: flex;
   justify-content: center;
@@ -98,6 +98,7 @@ const Home = () => {
         <Within>
           <Title
             text="center"
+            color="#fff"
             name="Every Detail, Handled
                   with Precision and Grace."
           />
@@ -115,6 +116,7 @@ const Home = () => {
         <Within2>
           <Title
             text="center"
+            color="#fff"
             name="Every Detail, Handled
                   with Precision and Grace."
           />
