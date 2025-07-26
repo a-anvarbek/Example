@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -31,22 +32,28 @@ const P = styled.p`
 const Button = styled.button`
   width: 363px;
   height: 70px;
-  border: 2px solid #b3935c;
+  border: none;
   border-radius: 20px;
-  background-color: #000;
-  color: #fff;
+  background-color: #b3935c;
+  color: #000;
   font-size: 25px;
+  font-weight: 600;
   transition: all 0.3s ease;
   cursor: pointer;
 
   &:hover {
     color: #b3935c;
-    border: 2px solid #fff;
+    background: linear-gradient(90deg, #000 0%, #b3935c 100%);
     transform: scale(1.05);
+  }
+  &:active {
+    transform: scale(0.98);
   }
 `;
 
 const ImperialHero = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <Wrapper>
@@ -60,7 +67,10 @@ const ImperialHero = () => {
             soul with a modern spirit.
           </P>
 
-          <Button className="imperial-button">
+          <Button
+            className="imperial-button"
+            onClick={() => navigate("/imperial-story")}
+          >
             Discover The Imperial Story
           </Button>
         </Within>
