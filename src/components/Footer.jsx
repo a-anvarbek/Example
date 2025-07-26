@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   background-color: #000;
   color: #b3935c;
-  padding: 20px 50px;
+  padding: 20px 80px;
   transition: 0.3s;
 
   &:hover {
