@@ -1,7 +1,7 @@
 const ROUTES = {
   HOME: "/",
+  HISTORY: "/imperial-story",
   LIFESTYLE: "/concierge-lifestyle",
-  HISTORY: "/imperial-history",
   TOURS: "/signature-tours",
   PAYMENT: "/payment",
   BOOKING: "/booking",

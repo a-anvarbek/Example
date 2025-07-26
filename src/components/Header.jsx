@@ -1,5 +1,5 @@
 // Libraries
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -8,7 +8,6 @@ import styled from "styled-components";
 // Images
 import BG from "../images/home/Logo.png";
 
-// Styled Components
 const Wrapper = styled.div`
   width: 100%;
   background-color: #000;
@@ -102,11 +101,61 @@ const A = styled.a`
   text-decoration: none;
 `;
 
+const DropdownWrapper = styled.div`
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover > ul {
+    display: block;
+  }
+`;
+
+const Selected = styled.div`
+  transition: 0.3s;
+
+  &:hover {
+    background-color: #1a1a1a;
+    color: #ffd387;
+    border-color: #ffd387;
+  }
+`;
+
+const OptionsList = styled.ul`
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #000;
+  border: 1px solid #b3935c;
+  border-radius: 6px;
+  padding: 0;
+  margin: 10px 0 0 0;
+  list-style: none;
+  min-width: 200px;
+  z-index: 999;
+`;
+
+const OptionItem = styled.li`
+  padding: 10px 14px;
+  color: #b3935c;
+  transition: 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #1a1a1a;
+    color: #ffd387;
+  }
+`;
+
 const Header = () => {
   const navigate = useNavigate();
   const logoRef = useRef(null);
   const triggerRef = useRef(null);
   const navLogoRef = useRef(null);
+  const [selected, setSelected] = useState("Services");
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -146,6 +195,13 @@ const Header = () => {
     );
   }, []);
 
+  const handleSelect = (value, anchor) => {
+    setSelected(value);
+    if (anchor) {
+      window.location.href = anchor;
+    }
+  };
+
   return (
     <>
       <Wrapper>
@@ -159,8 +215,8 @@ const Header = () => {
 
           <Menu>
             <Ul>
-              <Li>
-                <A href="#imperial-story">Imperial Story</A>
+              <Li onClick={() => navigate("/imperial-story")}>
+                Imperial Story
               </Li>
 
               <Li>
@@ -168,7 +224,43 @@ const Header = () => {
               </Li>
 
               <Li>
-                <A href="#signature-tours">Services</A>
+                <DropdownWrapper>
+                  <Selected>{selected}</Selected>
+
+                  <OptionsList>
+                    <OptionItem
+                      onClick={() =>
+                        handleSelect("Chauffeur service", "#signature-tours")
+                      }
+                    >
+                      Chauffeur service
+                    </OptionItem>
+
+                    <OptionItem
+                      onClick={() =>
+                        handleSelect("Airport transfer", "#signature-tours")
+                      }
+                    >
+                      Airport transfer
+                    </OptionItem>
+
+                    <OptionItem
+                      onClick={() =>
+                        handleSelect("One day tours", "#signature-tours")
+                      }
+                    >
+                      One day tours
+                    </OptionItem>
+
+                    <OptionItem
+                      onClick={() =>
+                        handleSelect("Multiple days tours", "#signature-tours")
+                      }
+                    >
+                      Multiple days tours
+                    </OptionItem>
+                  </OptionsList>
+                </DropdownWrapper>
               </Li>
 
               <Li>
