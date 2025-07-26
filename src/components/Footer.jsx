@@ -14,12 +14,12 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #000;
-  color: #fff;
+  color: #b3935c;
   padding: 20px 50px;
   transition: 0.3s;
 
   &:hover {
-    color: #808080;
+    color: #614f33;
   }
 `;
 
@@ -43,7 +43,7 @@ const Called = styled.p`
   line-height: 33px;
 
   span {
-    color: #fff;
+    color: #b3935c;
   }
 `;
 
@@ -58,7 +58,7 @@ const A = styled.a`
 
   &:hover {
     transform: scale(1.05);
-    color: #fff;
+    color: #ffd387;
   }
 
   &::after {
@@ -68,7 +68,7 @@ const A = styled.a`
     bottom: -5px;
     width: 100%;
     height: 2px;
-    background-color: #fff;
+    background-color: #ffd387;
     transform: scale(0);
     transform-origin: center;
     transition: transform 0.3s ease;
