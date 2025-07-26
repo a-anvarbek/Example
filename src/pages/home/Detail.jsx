@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Title from "../../components/Title";
 
 // Images
-import BG from "../../images/home/HomeBG2.jpg";
+import BG from "../../images/home/HomeBG3.png";
 import Img1 from "../../images/home/Img1.png";
 import Img2 from "../../images/home/Img2.png";
 import Img3 from "../../images/home/Img3.png";

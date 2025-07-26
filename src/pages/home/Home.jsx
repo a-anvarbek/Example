@@ -15,6 +15,7 @@ import Title from "../../components/Title";
 
 // Images
 import BG from "../../images/home/HomeBG.jpg";
+import BG2 from "../../images/home/DetailBG.jpg";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -31,6 +32,22 @@ const Within = styled.div`
   width: 100%;
   height: 100%;
   background-image: url(${BG});
+  background-blend-mode: multiply;
+  background-color: #666464;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Within2 = styled.div`
+  width: 100%;
+  height: 100%;
+  background-image: url(${BG2});
   background-blend-mode: multiply;
   background-color: #666464;
   background-position: center;
@@ -65,9 +82,9 @@ const Home = () => {
     sr.reveal(".home-content", { delay: 400 });
 
     // Imperial Story
-    sr.reveal(".imperial-title", {delay: 200});
-    sr.reveal(".imperial-content", {delay: 350});
-    sr.reveal(".imperial-button", {delay: 500});
+    sr.reveal(".imperial-title", { delay: 200 });
+    sr.reveal(".imperial-content", { delay: 350 });
+    sr.reveal(".imperial-button", { delay: 500 });
 
     // Detail section
     sr.reveal(".detail-title", { delay: 100 });
@@ -93,6 +110,21 @@ const Home = () => {
       </Wrapper>
 
       <ImperialHero />
+
+      <Wrapper id="home">
+        <Within2>
+          <Title
+            text="center"
+            name="Every Detail, Handled
+                  with Precision and Grace."
+          />
+
+          <Content className="home-content">
+            From dinner at a Michelin-star restaurant to personal assistants and
+            spa bookings, our lifestyle team curates your lapan in full.
+          </Content>
+        </Within2>
+      </Wrapper>
 
       {/* <Detail /> */}
 
