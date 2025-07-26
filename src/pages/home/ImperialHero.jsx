@@ -42,7 +42,8 @@ const Button = styled.button`
   cursor: pointer;
 
   &:hover {
-    color: #b3935c;
+    color: #fff;
+    border: 2px solid #b3935c;
     background: linear-gradient(90deg, #000 0%, #b3935c 100%);
     transform: scale(1.05);
   }
