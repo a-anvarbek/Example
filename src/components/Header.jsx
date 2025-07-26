@@ -24,7 +24,7 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled.div`
-  padding: 25px 50px;
+  padding: 25px 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
